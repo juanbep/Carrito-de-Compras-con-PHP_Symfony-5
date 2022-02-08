@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title%} Articles {% endblock %}
+
+{% block body %}
+
+  {% if articles %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nombre Artículo</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%  for article in articles %}
+          <tr>
+            <td>{{ article.name }}</td>
+            <td>
+                <a href="{{ path('article_show', {'id' : article.id}) }} " class="btn btn-dark">Ver</a>
+            </td>
+            </td>
+            <td>
+                <a href="{{ path('update_article', {'id' : article.id}) }}" class="btn btn-info">Actualizar</a>
+            </td>
+            <td>
+                <a href="{{ path('delete_article', {'id' : article.id})  }}" class="btn btn-danger">Eliminar</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No hay artículos</p>
+  {% endif %}
+
+{% endblock %}

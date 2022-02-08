@@ -1,0 +1,53 @@
+{% extends 'baseHomeUser.html.twig' %}
+
+{% block title %}Tienda{% endblock %}
+
+{% block body %}
+  
+     <div class="container">
+        <br>
+            <div class="alert alert-success">
+                Pantalla de mensaje...
+                <a href="#" class="badge badge-success">Ver carrito</a>
+            </div>
+        <div class="row">
+            {% if articles %}
+         
+                {%  for article in articles %}
+                    <div class ="col-3">
+                            <div class ="card">
+                               <img
+                                title="Titulo producto"
+                                alt="Titulo" 
+                                class="card-img-top" 
+                                src="{{article.imagen}}" 
+                                data-toggle="popover"
+                                data-trigger="hover"
+                                data-content="{{article.descripcion}}"
+                                >
+                                <div class="card-body">
+                                    <span>{{article.name}}</span>
+                                    <h5 class="card-title">{{article.precio}}</h5>
+                                    <p class="card-text">Descripción</p>
+                                    <button class="btn btn-primary" 
+                                    name="btnAccion" 
+                                    value="Agregar" 
+                                    type="submit">
+                                        Agregar al Carrito
+                                    </button>
+                                </div>
+                          </div>
+                    </div>
+ 
+                {% endfor %}   
+            {% else %}
+                <p>No hay artículos</p>
+            {% endif %}
+        </div>
+    </div>    
+    <script>
+            $(function () {
+            $('[data-toggle="popover"]').popover()
+            })
+    </script>
+{% endblock %}
