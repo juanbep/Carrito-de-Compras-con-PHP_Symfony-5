@@ -8,6 +8,7 @@
         <br>
             <div class="alert alert-success">
                 Pantalla de mensaje...
+                {{ dump(app.session.all) }}
                 <a href="#" class="badge badge-success">Ver carrito</a>
             </div>
         <div class="row">
@@ -17,24 +18,23 @@
                     <div class ="col-3">
                             <div class ="card">
                                <img
-                                title="Titulo producto"
+                                title="{{article.name}}"
                                 alt="Titulo" 
                                 class="card-img-top" 
                                 src="{{article.imagen}}" 
                                 data-toggle="popover"
                                 data-trigger="hover"
                                 data-content="{{article.descripcion}}"
+                                height ="310px"
                                 >
                                 <div class="card-body">
                                     <span>{{article.name}}</span>
                                     <h5 class="card-title">{{article.precio}}</h5>
                                     <p class="card-text">Descripción</p>
-                                    <button class="btn btn-primary" 
-                                    name="btnAccion" 
-                                    value="Agregar" 
-                                    type="submit">
-                                        Agregar al Carrito
-                                    </button>
+                                    
+                                    <a href="{{ path('add_product', {'id' : article.id})  }}" class="btn btn-primary">Agregar al Carrito</a>
+                                   
+                                    
                                 </div>
                           </div>
                     </div>
