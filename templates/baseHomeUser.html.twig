@@ -21,14 +21,14 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="{{ path('hello_page') }}">Logo de la Tienda</a>
+            <a class="navbar-brand" href="{{ path('home_user') }}">Logo de la Tienda</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('welcome') }}">Home</a>
+                        <a class="nav-link" href="{{ path('home_user') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('article_list') }}">Carrito(0)</a>
+                        <a class="nav-link" href="{{ path('view_cart') }}">Carrito({{ app.session.get('article') | length}})</a>
                     </li>
                 </ul>
             </div>
@@ -42,5 +42,7 @@
 </main>
 
 {% block javascripts %}{% endblock %}
+<br>
+<div class="col-12 text-center">Beca98(© Copyright 2022, Algunos Derechos Reservados)</div>  
 </body>
 </html>

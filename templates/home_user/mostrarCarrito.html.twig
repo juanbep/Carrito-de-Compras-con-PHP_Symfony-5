@@ -1,0 +1,48 @@
+{% extends 'baseHomeUser.html.twig' %}
+
+{% block title %}Tienda{% endblock %}
+
+{% block body %}
+    <br>
+    <h3>Lista del carrito</h3>
+    
+    {% if app.session.get('article')  is not empty %}
+   
+    {% else %}
+        <div class="alert alert-success">
+                No hay productos en el carrito...
+        </div>
+    {% endif %}
+
+    <table class="table table-light table table-striped">
+    <tbody>
+        <tr>
+            <th width="40%">Descripción</th>
+            <th width="15%" class="text-center">Cantidad</th>
+            <th width="20%" class="text-center">Precio</th>
+            <th width="20%" class="text-center">Total</th>
+            <th width="5%">--</th>
+        </tr>
+        
+        {%  for article in app.session.get('article') %}
+            <tr>
+            <td width="40%">{{article.name}}</td>
+            <td width="15%" class="text-center">1</td>
+            <td width="20%" class="text-center">$300</td>
+            <td width="20%" class="text-center">$200</td>
+            <td width="5%"> <button class="btn btn-danger" type="button">Eliminar</button>   </td>
+            </tr>
+            
+        {% endfor %}   
+        
+       
+        <tr>
+            <td colspan="3"  align="right"><h3>Total</h3> </td>
+            <td align="center"><h3>${{ 300 |number_format(2) }}</h3></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+ 
+{% endblock %}
+

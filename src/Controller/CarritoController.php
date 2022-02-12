@@ -31,5 +31,20 @@ class CarritoController extends AbstractController
         return $this->redirectToRoute('home_user');
         
     }
+    
+    
+     /**
+     * @Route("/view/cart", name="view_cart")
+     */
+    public function product()
+    {
+        
+        return $this->render('home_user/mostrarCarrito.html.twig');
+    }
+    
+    
+    
+    
+    
   
 }
