@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\Session;
 
+
 class CarritoController extends AbstractController
 {
     
@@ -18,9 +19,8 @@ class CarritoController extends AbstractController
      * @Route("/add/product/{id}", name="add_product")
      *  Method ({"GET", "POST"})
      */
-    public function addProduct(Request $request, $id)
+    public function addProduct(Product $article)
     {
-        $article = $this->getDoctrine()->getRepository(Product::class)->find($id);
                 
         $sessionVal = $this->get('session')->get('article');
         
@@ -38,11 +38,21 @@ class CarritoController extends AbstractController
      */
     public function product()
     {
-        
         return $this->render('home_user/mostrarCarrito.html.twig');
     }
     
     
+    /**
+    * @Route ("/article/session/delete/{id}", name="delete_article_session")
+    * Method ({"DELETE"})
+    */
+    public function delete(Product $article, $id){
+    
+        
+        
+ 
+      return $this->render('home_user/mostrarCarrito.html.twig');
+}
     
     
     

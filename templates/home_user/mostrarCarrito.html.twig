@@ -7,7 +7,7 @@
     <h3>Lista del carrito</h3>
     
     {% if app.session.get('article')  is not empty %}
-   
+       
     {% else %}
         <div class="alert alert-success">
                 No hay productos en el carrito...
@@ -23,22 +23,23 @@
             <th width="20%" class="text-center">Total</th>
             <th width="5%">--</th>
         </tr>
-        
+        {% set total = 0 %}
         {%  for article in app.session.get('article') %}
             <tr>
             <td width="40%">{{article.name}}</td>
             <td width="15%" class="text-center">1</td>
-            <td width="20%" class="text-center">$300</td>
-            <td width="20%" class="text-center">$200</td>
-            <td width="5%"> <button class="btn btn-danger" type="button">Eliminar</button>   </td>
+            <td width="20%" class="text-center">${{ article.precio }}</td>
+            <td width="20%" class="text-center">${{ (article.precio * 1) | number_format(2)}}</td>
+            <td width="5%"> <a href="{{ path('delete_article_session', {'id' : article.id})  }}" class="btn btn-danger">Eliminar</a> </td>
             </tr>
-            
+      
+            {% set total = total + (article.precio*1) %}
         {% endfor %}   
         
        
         <tr>
             <td colspan="3"  align="right"><h3>Total</h3> </td>
-            <td align="center"><h3>${{ 300 |number_format(2) }}</h3></td>
+            <td align="center"><h3>${{ total |number_format(2)}}</h3></td>
             <td></td>
         </tr>
     </tbody>

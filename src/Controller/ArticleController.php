@@ -22,7 +22,7 @@ class ArticleController extends AbstractController {
    * @Route("/article", name="article_list")
    */
     public function article(){
-    //$articles = ['Article 1','Article 2','Article 3','Article 4'];
+    
     $articles = $this->getDoctrine()->getRepository(Product::class)->findAll();
 
     return $this->render('articles/index.html.twig', array('articles' => $articles));
@@ -100,7 +100,7 @@ public function update(Request $request, $id){
 
 /**
  * @Route ("/article/delete/{id}", name="delete_article")
- * @Method ({"DELETE"})
+ * Method ({"DELETE"})
  */
 public function delete(Product $article){
     $entityManager = $this->getDoctrine()->getManager();
