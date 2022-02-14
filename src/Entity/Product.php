@@ -32,6 +32,12 @@ class Product
    */
    private $precio;
    
+   
+   /**
+   * @ORM\Column(type="integer")
+   */
+   private $cantidad;
+   
 
    /**
    * @ORM\Column(type="text")
@@ -86,5 +92,14 @@ class Product
        $this->imagen = $imagen;
    }
 
+   function getCantidad()
+   {
+       return $this->cantidad;
+   }
+
+   function setCantidad($cantidad): void
+   {
+       $this->cantidad = $cantidad;
+   }
     
 }

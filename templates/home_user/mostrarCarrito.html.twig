@@ -20,13 +20,13 @@
             {%  for article in app.session.get('article') %}
                 <tr>
                 <td width="40%">{{article.name}}</td>
-                <td width="15%" class="text-center">1</td>
+                <td width="15%" class="text-center">{{ article.cantidad }}</td>
                 <td width="20%" class="text-center">${{ article.precio }}</td>
-                <td width="20%" class="text-center">${{ (article.precio * 1) | number_format(2)}}</td>
+                <td width="20%" class="text-center">${{ (article.precio * article.cantidad) | number_format(2)}}</td>
                 <td width="5%"> <a href="{{ path('delete_article_session', {'id' : article.id})  }}" class="btn btn-danger">Eliminar</a> </td>
                 </tr>
 
-                {% set total = total + (article.precio*1) %}
+                {% set total = total + (article.precio*article.cantidad) %}
             {% endfor %}   
             <tr>
                 <td colspan="3"  align="right"><h3>Total</h3> </td>

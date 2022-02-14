@@ -23,10 +23,27 @@ class CarritoController extends AbstractController
     {
         
         $sessionVal = $this->get('session')->get('article');
+        $band = False;
+       
         
-        $sessionVal[] = $article;
+        if(!empty($sessionVal)){
+            foreach ($sessionVal as $producto)
+            {
+                if($producto->getId() == $article->getId() ){
+                    $cantidad = $producto->getCantidad() + 1;
+                    $producto->setCantidad($cantidad);
+                    $band = true;
+                }
+            }
+        }
+          
+        if($band == false){
+            $article->setCantidad(1);
+            $sessionVal[] = $article;
         
-        $this->get('session')->set('article', $sessionVal);
+            $this->get('session')->set('article', $sessionVal);
+        }
+        
         
         return $this->redirectToRoute('home_user');
         
@@ -38,6 +55,7 @@ class CarritoController extends AbstractController
      */
     public function product()
     {
+        
         return $this->render('home_user/mostrarCarrito.html.twig');
     }
     
