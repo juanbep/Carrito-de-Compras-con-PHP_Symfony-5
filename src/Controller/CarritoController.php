@@ -21,7 +21,7 @@ class CarritoController extends AbstractController
      */
     public function addProduct(Product $article)
     {
-                
+        
         $sessionVal = $this->get('session')->get('article');
         
         $sessionVal[] = $article;
@@ -47,14 +47,21 @@ class CarritoController extends AbstractController
     * Method ({"DELETE"})
     */
     public function delete(Product $article, $id){
+       
+        $sessionArticle = $this->get('session')->get('article');   
+        $sessionVal = null;
+
+        foreach ($sessionArticle as $value)
+        {
+            if( $value->getId() != $id){
+                 $sessionVal[] = $value;
+            }
+        }
+        $this->get('session')->clear();
+
+        $this->get('session')->set('article', $sessionVal);
+
+        return $this->redirectToRoute('view_cart');
     
-        
-        
- 
-      return $this->render('home_user/mostrarCarrito.html.twig');
-}
-    
-    
-    
-  
+    }
 }
