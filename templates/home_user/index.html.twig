@@ -6,11 +6,13 @@
   
      <div class="container">
         <br>
-            <div class="alert alert-success">
-                Pantalla de mensaje...
-                {{ dump(app.session.all)}}
-                <a href="#" class="badge badge-success">Ver carrito</a>
-            </div>
+        {% for flash_message in app.session.flashBag.get('success') %}
+             <div class="alert alert-success">
+                 {{ flash_message }}
+                 <a href="#" class="badge badge-success">ver carrito</a>
+             </div>
+         {% endfor %}
+
         <div class="row">
             {% if articles %}
          

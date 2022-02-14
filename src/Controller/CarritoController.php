@@ -44,6 +44,11 @@ class CarritoController extends AbstractController
             $this->get('session')->set('article', $sessionVal);
         }
         
+        // Recuperar flashbag del controlador
+        $flashbag = $this->get('session')->getFlashBag();
+
+        // Agregar mensaje flash
+        $flashbag->add("success", "Producto ". $article->getName()  ." agregado al carrito...");
         
         return $this->redirectToRoute('home_user');
         
