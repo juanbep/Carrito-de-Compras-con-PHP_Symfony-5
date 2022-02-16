@@ -30,6 +30,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('view_cart') }}">Carrito({{ app.session.get('article') | length}})</a>
                     </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                          Usuario
+                        </a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Información Usuario</a>
+                          <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
