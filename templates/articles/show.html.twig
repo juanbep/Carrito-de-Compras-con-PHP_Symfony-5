@@ -7,14 +7,14 @@
     <img
     title="{{article.name}}"    
     alt="Producto",
-    style="width:20%",  
+    style="width:30%",  
     height ="310px",
     class="mx-auto d-block",    
     class="card-img-top", 
     src="{{article.imagen}}" 
     >
   <h1>Nombre: {{ article.name }}</h1>
-  <p>Precio: {{ article.precio }}</p>
+  <p>Precio: ${{ article.precio | number_format(2) }}</p>
   <p>Descripción: {{ article.descripcion }}</p>
 <hr>
   <a href="{{ path('article_list') }}" class="btn btn-primary mt-3">Volver</a>

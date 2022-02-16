@@ -21,7 +21,7 @@
                 <tr>
                 <td width="40%">{{article.name}}</td>
                 <td width="15%" class="text-center">{{ article.cantidad }}</td>
-                <td width="20%" class="text-center">${{ article.precio }}</td>
+                <td width="20%" class="text-center">${{ article.precio | number_format(2)}}</td>
                 <td width="20%" class="text-center">${{ (article.precio * article.cantidad) | number_format(2)}}</td>
                 <td width="5%"> <a href="{{ path('delete_article_session', {'id' : article.id})  }}" class="btn btn-danger">Eliminar</a> </td>
                 </tr>

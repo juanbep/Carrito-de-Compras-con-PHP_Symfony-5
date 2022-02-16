@@ -21,7 +21,7 @@ class CarritoController extends AbstractController
      */
     public function addProduct(Product $article)
     {
-        
+      
         $sessionVal = $this->get('session')->get('article');
         $band = False;
        

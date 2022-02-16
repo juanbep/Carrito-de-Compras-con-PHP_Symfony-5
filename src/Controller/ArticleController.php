@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -37,7 +38,7 @@ public function new(Request $request){
 
   $form = $this->createFormBuilder($article)
     ->add('name', TextType::class, array('required' =>true,'attr' =>array('class' => 'form-control')))
-    ->add('precio', NumberType::class, array('required' =>true,'invalid_message'=> 'Valor inválido','attr' =>array('class' => 'form-control')))      
+    ->add('precio', NumberType::class, array('required' =>true,'invalid_message'=> 'Valor inválido','attr' =>array('class' => 'form-control', 'placeholder' => 'Sin puntos ni comas...')))      
     ->add('cantidad', NumberType::class, array('invalid_message'=> 'Valor inválido','attr' =>array('class' => 'form-control')))            
     ->add('descripcion', TextareaType::class, array('required' =>true,'attr' =>array('class' =>'form-control')))
     ->add('imagen', UrlType::class, array('required' =>false,'attr' =>array('class' =>'form-control', 'placeholder' => 'Url ...')))      
@@ -80,7 +81,7 @@ public function update(Request $request, $id){
 
     $form = $this->createFormBuilder($article)
     ->add('name', TextType::class, array('required' =>true,'attr' =>array('class' => 'form-control')))
-    ->add('precio', NumberType::class, array('required' =>true,'attr' =>array('class' => 'form-control')))      
+    ->add('precio', NumberType::class, array('required' =>true,'attr' =>array('class' => 'form-control', 'placeholder' => 'Sin puntos ni comas...')))      
     ->add('cantidad', NumberType::class, array('invalid_message'=> 'Valor inválido','attr' =>array('class' => 'form-control')))         
     ->add('descripcion', TextareaType::class, array('required' =>true,'attr' =>array('class' =>'form-control')))
     ->add('imagen', UrlType::class, array('required' =>false,'attr' =>array('class' =>'form-control', 'placeholder' => 'Url ...')))      
