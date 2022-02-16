@@ -9,7 +9,7 @@
         {% for flash_message in app.session.flashBag.get('success') %}
              <div class="alert alert-success">
                  {{ flash_message }}
-                 <a href="#" class="badge badge-success">ver carrito</a>
+                 <a href="{{ path('view_cart')}}" class="badge badge-success">ver carrito</a>
              </div>
          {% endfor %}
 
