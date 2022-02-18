@@ -2,11 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/CRUD_Symfony4/src/Controller/CarritoController.php</file>
-            <file>file:/C:/xampp/htdocs/CRUD_Symfony4/templates/home_user/index.html.twig</file>
-            <file>file:/C:/xampp/htdocs/CRUD_Symfony4/templates/home_user/mostrarCarrito.html.twig</file>
-            <file>file:/C:/xampp/htdocs/CRUD_Symfony4/src/Entity/Product.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
