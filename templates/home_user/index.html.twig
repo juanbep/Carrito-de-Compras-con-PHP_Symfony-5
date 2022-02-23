@@ -31,15 +31,14 @@
                                 >
                                 
                                 <div class="card-body">
-                                    <div class="input-group mb-3" >
+                        
+                                    <span>{{article.name}}</span>
+                                    <h5 class="card-title">${{article.precio | number_format(2)}}</h5>
+                                    <div class="input-group mb-3">
                                         Cantidad:&nbsp;
                                         <input type="number" id="qty_input" class="form-control form-control-sm"   value="1" min="1" max="{{ article.cantidad }}">
                                     </div>
-                                    {% set cantidad = 2 %}
-
-                                    <span>{{article.name}}</span>
-                                    <h5 class="card-title">${{article.precio | number_format(2)}}</h5>
-                                    <a href="{{ path('add_product', {'id' : article.id})  }}" class="btn btn-primary">Agregar al Carrito</a>
+                                    <a href="{{ path('add_product', {'id' : article.id})  }}" class="btn btn-primary col-md-12 text-center">Agregar al Carrito</a>
                                 </div>
                           </div>
                                  
