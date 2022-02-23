@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 
 class CarritoController extends AbstractController
@@ -17,20 +18,21 @@ class CarritoController extends AbstractController
     
     /**
      * @Route("/add/product/{id}", name="add_product")
-     *  Method ({"GET", "POST"})
+     * @Method ({"GET", "POST"})
      */
-    public function addProduct(Product $article)
+    public function addProduct(Request $request, Product $article): Response
     {
       
         $sessionVal = $this->get('session')->get('article');
         $band = False;
        
+        $cantidad =  $request->request->get('cantidad');
         
         if(!empty($sessionVal)){
             foreach ($sessionVal as $producto)
             {
                 if($producto->getId() == $article->getId() ){
-                    $cantidad = $producto->getCantidad() + 1;
+                    $cantidad = $producto->getCantidad() + $cantidad;
                     $producto->setCantidad($cantidad);
                     $band = true;
                 }
@@ -38,7 +40,7 @@ class CarritoController extends AbstractController
         }
           
         if($band == false){
-            $article->setCantidad(1);
+            $article->setCantidad($cantidad);
             $sessionVal[] = $article;
         
             $this->get('session')->set('article', $sessionVal);
@@ -48,7 +50,7 @@ class CarritoController extends AbstractController
         $flashbag = $this->get('session')->getFlashBag();
 
         // Agregar mensaje flash
-        $flashbag->add("success", $article->getName()  ." agregado al carrito...");
+        $flashbag->add("success", $article->getName() ." agregado al carrito...");
         
         return $this->redirectToRoute('home_user');
         
@@ -67,7 +69,7 @@ class CarritoController extends AbstractController
     
     /**
     * @Route ("/article/session/delete/{id}", name="delete_article_session")
-    * Method ({"DELETE"})
+    * @Method ({"DELETE"})
     */
     public function delete(Product $article, $id){
        
@@ -87,4 +89,5 @@ class CarritoController extends AbstractController
         return $this->redirectToRoute('view_cart');
     
     }
+    
 }
