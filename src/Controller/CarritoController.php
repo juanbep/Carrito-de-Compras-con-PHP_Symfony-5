@@ -24,9 +24,9 @@ class CarritoController extends AbstractController
     {
       
         $sessionVal = $this->get('session')->get('article');
-        $band = False;
+        $duplicateProduct = False; //para saber si un producto ya se encuentra en el carrito de compras
        
-        $cantidad =  $request->request->get('cantidad');
+        $cantidad =  $request->request->get('cantidad'); //cantidad en unidades de un mismo producto que se desea agregar al carrito
         
         if(!empty($sessionVal)){
             foreach ($sessionVal as $producto)
@@ -34,12 +34,12 @@ class CarritoController extends AbstractController
                 if($producto->getId() == $article->getId() ){
                     $cantidad = $producto->getCantidad() + $cantidad;
                     $producto->setCantidad($cantidad);
-                    $band = true;
+                    $duplicateProduct = true;
                 }
             }
         }
           
-        if($band == false){
+        if($duplicateProduct == false){
             $article->setCantidad($cantidad);
             $sessionVal[] = $article;
         
@@ -90,4 +90,5 @@ class CarritoController extends AbstractController
     
     }
     
+   
 }

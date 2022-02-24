@@ -62,7 +62,7 @@ public function new(Request $request){
 
 /**
  * @Route ("/article/{id}", name= "article_show")
- * @Method ({"GET"})
+ * Method ({"GET"})
  */
 public function show($id){
   $article = $this->getDoctrine()->getRepository(Product::class)->find($id);
@@ -73,7 +73,7 @@ public function show($id){
 
 /**
  * @Route ("/article/update/{id}", name="update_article")
- * Method ({"GET", "POST"})
+ * @Method ({"GET", "POST"})
  */
 public function update(Request $request, $id){
     
