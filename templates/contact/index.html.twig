@@ -1,12 +1,13 @@
 {% extends 'baseHomeUser.html.twig' %}
 
-{% block title%}{% endblock %}
+{% block title%}Contact{% endblock %}
 
 {% block body %}
 
+<h1>Contáctese con nosotros</h1>
 
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+{{ form_widget(form) }}
 {{ form_end(form) }}
 
 {% endblock %}
