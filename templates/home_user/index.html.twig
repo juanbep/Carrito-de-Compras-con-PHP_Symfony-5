@@ -12,26 +12,34 @@
                  <a href="{{ path('view_cart')}}" class="badge badge-success">ver carrito</a>
              </div>
          {% endfor %}
-         <div id="demo" class="carousel slide" data-ride="carousel">
+        <div id="demo" class="carousel slide" data-ride="carousel">
 
             <!-- Indicators -->
             <ul class="carousel-indicators">
               <li data-target="#demo" data-slide-to="0" class="active"></li>
               <li data-target="#demo" data-slide-to="1"></li>
               <li data-target="#demo" data-slide-to="2"></li>
+              <li data-target="#demo" data-slide-to="3"></li>
+              <li data-target="#demo" data-slide-to="4"></li>
             </ul>
 
             <!-- The slideshow -->
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="\CRUD_Symfony4\Archivos\la.jpg" alt="Los Angeles">
-              </div>
-              <div class="carousel-item">
-                <img src="\CRUD_Symfony4\Archivos\chicago.jpg" alt="Chicago">
-              </div>
-              <div class="carousel-item">
-                <img src="\CRUD_Symfony4\Archivos\ny.jpg" alt="New York">
-              </div>
+                <div class="carousel-item active">
+                <img src="\CRUD_Symfony4\Archivos\carrusel1.jpg" alt="Los Angeles">
+                </div>
+                <div class="carousel-item">
+                <img src="\CRUD_Symfony4\Archivos\carrusel2.jpg" alt="Chicago">
+                </div>
+                <div class="carousel-item">
+                <img src="\CRUD_Symfony4\Archivos\carrusel3.jpg" alt="New York">
+                </div>
+                <div class="carousel-item">
+                <img src="\CRUD_Symfony4\Archivos\carrusel4.jpg" alt="New York">
+                </div>
+                <div class="carousel-item">
+                <img src="\CRUD_Symfony4\Archivos\carrusel5.jpg" alt="New York">
+                </div>
             </div>
 
             <!-- Left and right controls -->
@@ -42,7 +50,8 @@
               <span class="carousel-control-next-icon"></span>
             </a>
 
-          </div>
+        </div>
+        <br> 
         <div class="row">
             {% if articles %}
          

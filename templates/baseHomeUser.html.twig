@@ -22,22 +22,22 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="{{ path('home_user') }}"><i class="bi bi-cursor-fill"></i>clickSH<i class="bi bi-emoji-sunglasses"></i>P</a>
+            <a class="navbar-brand" href="{{ path('home_user') }}"><i class="bi bi-hand-index-thumb"></i> clickSH<i class="bi bi-emoji-sunglasses"></i>P</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('home_user') }}">Home</a>
+                        <a class="nav-link" href="{{ path('home_user') }}"><i class="bi bi-house"></i> Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('view_cart') }}">Carrito({{ app.session.get('article') | length}})</a>
+                        <a class="nav-link" href="{{ path('view_cart') }}"><i class="bi bi-cart"></i> Carrito({{ app.session.get('article') | length}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('contact') }}">Contacto</a>
+                        <a class="nav-link" href="{{ path('contact') }}"><i class="bi bi-envelope"></i> Contacto</a>
                     </li>
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                          Usuario
+                          <i class="bi bi-person-circle"></i> Usuario
                         </a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="#">Información Usuario</a>
