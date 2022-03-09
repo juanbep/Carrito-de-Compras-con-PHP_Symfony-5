@@ -6,12 +6,6 @@
   
      <div class="container">
         <br>
-        {% for flash_message in app.session.flashBag.get('success') %}
-             <div class="alert alert-success">
-                 {{ flash_message }}
-                 <a href="{{ path('view_cart')}}" class="badge badge-success">ver carrito</a>
-             </div>
-         {% endfor %}
         <div id="demo" class="carousel slide" data-ride="carousel">
 
             <!-- Indicators -->
@@ -51,10 +45,17 @@
             </a>
 
         </div>
-        <br> 
+        <br>
+        {% for flash_message in app.session.flashBag.get('success') %}
+             <div class="alert alert-success alert-dismissible">
+                 {{ flash_message }}
+                 <a href="{{ path('view_cart')}}" class="badge badge-success">ver carrito</a>
+                 <button type="button" class="close" data-dismiss="alert">&times;</button>
+             </div>
+         {% endfor %}
         <div class="row">
             {% if articles %}
-         
+                
                 {%  for article in articles %}
                     <div class ="col-3">
                             <div class ="card">
@@ -77,7 +78,7 @@
                                         Cantidad:&nbsp;
                                         <input type="number" name="cantidad" id="qty_input" class="form-control form-control-sm"   value="1" min="1" max="{{ article.cantidad }}">
                                         </div>
-                                        <button type="submit" class="btn btn-primary col-md-12 text-center">Agregar al Carrito</button>
+                                        <button type="submit" class="btn btn-primary col-md-12 text-center" id="myBtnSubmit">Agregar al Carrito</button>
                                     </form>
                                 </div>
                           </div>
@@ -89,10 +90,12 @@
                 <p>No hay artículos</p>
             {% endif %}
         </div>
+        
     </div>    
     <script>
-            $(function () {
+        $(function () {
             $('[data-toggle="popover"]').popover()
-            })
+        })
     </script>
+     
 {% endblock %}
