@@ -23,6 +23,10 @@ class CarritoController extends AbstractController
     public function addProduct(Request $request, Product $article): Response
     {
       
+        
+        //$this->denyAccessUnlessGranted('ROLE_USER');
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+       
         $sessionVal = $this->get('session')->get('article');
         $duplicateProduct = False; //para saber si un producto ya se encuentra en el carrito de compras
        
