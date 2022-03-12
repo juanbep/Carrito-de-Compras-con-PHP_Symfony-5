@@ -86,7 +86,7 @@ class CarritoController extends AbstractController
                  $sessionVal[] = $value;
             }
         }
-        $this->get('session')->clear();
+        $this->get('session')->set('article', null);
 
         $this->get('session')->set('article', $sessionVal);
 
