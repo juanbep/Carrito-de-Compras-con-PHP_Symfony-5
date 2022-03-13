@@ -38,8 +38,15 @@
                           <i class="bi bi-person-badge"></i> Usuario
                         </a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#"><i class="bi bi-info-circle"></i> Información Usuario</a>
-                          <a class="dropdown-item" href="#"><i class="bi bi-arrow-left-square"></i> Cerrar Sesión</a>
+                          <a class="dropdown-item" 
+                               data-toggle="popover"
+                               data-trigger="hover"
+                               data-content="
+                               {{app.user.email}} →
+                               {% for rol in app.user.roles %}
+                                 {{rol}}
+                               {% endfor %}"><i class="bi bi-info-circle"></i> Información Usuario</a>
+                          <a class="dropdown-item" href="{{path('app_logout')}}"><i class="bi bi-arrow-left-square"></i> Cerrar Sesión</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -51,11 +58,18 @@
     </nav>
 </header>
 
+
 <main role="main" class="container main">
   {% block body %}{% endblock %}
 </main>
 
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+    <script>
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+    </script>
+{% endblock %}
 <br>
 <div class="col-12 text-center">Beca98(© Copyright 2022, Algunos Derechos Reservados)</div>  
 </body>

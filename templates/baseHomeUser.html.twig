@@ -77,18 +77,18 @@
         </div>
     </nav>
 </header>
-
-<script>
-    $(function () {
-        $('[data-toggle="popover"]').popover()
-    })
-</script>
     
 <main role="main" class="container main">
   {% block body %}{% endblock %}
 </main>
 
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+    <script>
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+    </script>
+{% endblock %}
 <br>
 <div class="col-12 text-center">Beca98(© Copyright 2022, Algunos Derechos Reservados)</div>  
 </body>
