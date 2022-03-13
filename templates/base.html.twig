@@ -23,23 +23,23 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="{{ path('welcome') }}"><i class="bi bi-hand-index-thumb"></i> clickSH<i class="bi bi-emoji-sunglasses"></i>P</a>
+            <a class="navbar-brand" href="{{ path('admin') }}"><i class="bi bi-hand-index-thumb"></i> clickSH<i class="bi bi-emoji-sunglasses"></i>P</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('article_list') }}">Página Artículos</a>
+                        <a class="nav-link" href="{{ path('article_list') }}"><i class="bi bi-server"></i> Artículos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('new_article') }} ">Agregar Artículo</a>
+                        <a class="nav-link" href="{{ path('new_article') }} "><i class="bi bi-plus-circle"></i> Agregar Artículo</a>
                     </li>
                    <!-- Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                          Usuario
+                          <i class="bi bi-person-badge"></i> Usuario
                         </a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Información Usuario</a>
-                          <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                          <a class="dropdown-item" href="#"><i class="bi bi-info-circle"></i> Información Usuario</a>
+                          <a class="dropdown-item" href="#"><i class="bi bi-arrow-left-square"></i> Cerrar Sesión</a>
                         </div>
                     </li>
                 </ul>

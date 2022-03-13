@@ -3,13 +3,13 @@
 {% block title %}Login!{% endblock %}
 
 {% block body %}
+    <h1>Iniciar Sesión</h1>
     {% if error %}
         <br>
         <div class="alert alert-info alert-dismissible">
             {{ error.messageKey|trans(error.messageData, 'security') }}
         </div>
     {% endif %}
-    <h1>Iniciar Sesión</h1>
     <form action="{{ path('login') }}" method="post">
         <label for="username" class="">Email:</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
