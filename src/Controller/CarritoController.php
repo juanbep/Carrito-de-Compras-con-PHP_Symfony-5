@@ -24,7 +24,7 @@ class CarritoController extends AbstractController
     {
       
         
-        //$this->denyAccessUnlessGranted('ROLE_USER');
+        //$this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'User tried to access a page without having ROLE_ADMIN');
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
        
         $sessionVal = $this->get('session')->get('article');
