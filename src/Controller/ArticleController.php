@@ -20,7 +20,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class ArticleController extends AbstractController {
   /**
-   * @Route("/admin/article", name="articles_list")
+   * @Route("/admin/articles", name="articles_list")
    */
     public function article(){
     
@@ -30,7 +30,7 @@ class ArticleController extends AbstractController {
   }
   
   /**
- * @Route ("/admin/article/new", name="new_article")
+ * @Route ("/admin/articles/new", name="new_article")
  * Method ({"GET", "POST"})
  */
 public function new(Request $request){
@@ -61,7 +61,7 @@ public function new(Request $request){
 }
 
 /**
- * @Route ("/admin/article/{id}", name= "article_show")
+ * @Route ("/admin/articles/{id}", name= "article_show")
  * Method ({"GET"})
  */
 public function show($id){
@@ -72,7 +72,7 @@ public function show($id){
 }
 
 /**
- * @Route ("/admin/article/update/{id}", name="update_article")
+ * @Route ("/admin/articles/update/{id}", name="update_article")
  * @Method ({"GET", "POST"})
  */
 public function update(Request $request, $id){
@@ -102,7 +102,7 @@ public function update(Request $request, $id){
 }
 
 /**
- * @Route ("/admin/article/delete/{id}", name="delete_article")
+ * @Route ("/admin/articles/delete/{id}", name="delete_article")
  * Method ({"DELETE"})
  */
 public function delete(Product $article){

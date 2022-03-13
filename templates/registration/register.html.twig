@@ -10,9 +10,10 @@
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
           }) }}
-          
+          <br>  
+        {{ form_row(registrationForm.roles, {label: 'Rol'}) }} 
          
-        {{ form_row(registrationForm.agreeTerms)}}
+        {{ form_row(registrationForm.agreeTerms, {label: '*Acepto los términos y condiciones'})}}
             
       
         <button type="submit" class="btn btn-primary">Register</button>

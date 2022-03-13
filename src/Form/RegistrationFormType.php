@@ -28,6 +28,7 @@ class RegistrationFormType extends AbstractType
                     'User' => 'ROLE_USER',
                     'Admin' => 'ROLE_ADMIN',
                 ],
+                'required' => true,
                 'expanded' => true,
                 'multiple' => true,
                 'data' => $entity->getRoles() // Current roles assigned..
