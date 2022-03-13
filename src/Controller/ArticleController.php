@@ -20,7 +20,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class ArticleController extends AbstractController {
   /**
-   * @Route("/article", name="article_list")
+   * @Route("/admin/article", name="articles_list")
    */
     public function article(){
     
@@ -30,7 +30,7 @@ class ArticleController extends AbstractController {
   }
   
   /**
- * @Route ("/article/new", name="new_article")
+ * @Route ("/admin/article/new", name="new_article")
  * Method ({"GET", "POST"})
  */
 public function new(Request $request){
