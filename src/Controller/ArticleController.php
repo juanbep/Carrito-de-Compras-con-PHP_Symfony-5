@@ -52,7 +52,7 @@ public function new(Request $request){
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($article);
         $entityManager->flush();
-        return $this->redirectToRoute('article_list');
+        return $this->redirectToRoute('articles_list');
     }
   
     return $this->render('articles/new.html.twig',array(
@@ -61,7 +61,7 @@ public function new(Request $request){
 }
 
 /**
- * @Route ("/article/{id}", name= "article_show")
+ * @Route ("/admin/article/{id}", name= "article_show")
  * Method ({"GET"})
  */
 public function show($id){
@@ -72,7 +72,7 @@ public function show($id){
 }
 
 /**
- * @Route ("/article/update/{id}", name="update_article")
+ * @Route ("/admin/article/update/{id}", name="update_article")
  * @Method ({"GET", "POST"})
  */
 public function update(Request $request, $id){
@@ -95,21 +95,21 @@ public function update(Request $request, $id){
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->flush();
 
-        return $this->redirectToRoute('article_list');
+        return $this->redirectToRoute('articles_list');
     }
 
     return $this->render('articles/update.html.twig',array('form'=>$form->createView()));  
 }
 
 /**
- * @Route ("/article/delete/{id}", name="delete_article")
+ * @Route ("/admin/article/delete/{id}", name="delete_article")
  * Method ({"DELETE"})
  */
 public function delete(Product $article){
     $entityManager = $this->getDoctrine()->getManager();
     $entityManager->remove($article);
     $entityManager->flush();
-    return $this->redirectToRoute('article_list');
+    return $this->redirectToRoute('articles_list');
 }
 
 }
