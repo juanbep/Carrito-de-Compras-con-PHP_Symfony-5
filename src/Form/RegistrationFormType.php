@@ -22,23 +22,13 @@ class RegistrationFormType extends AbstractType
         $entity = $builder->getData();
         
         $builder
-            ->add('email', EmailType::class, array('required' =>true,'attr' =>array('class' => 'form-control')))
-            ->add('roles', ChoiceType::class, [
-                'choices' => [
-                    'User' => 'ROLE_USER',
-                    'Admin' => 'ROLE_ADMIN',
-                ],
-                'required' => true,
-                'expanded' => true,
-                'multiple' => true,
-                'data' => $entity->getRoles() // Current roles assigned..
-            ])    
+            ->add('email', EmailType::class, array('label' => 'Correo', 'required' =>true, 'attr' =>array('class' => 'form-control')))
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
+                'label' => 'Contraseña',
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
-                'attr' =>array('class' => 'form-control'),
+                'attr' =>array('autocomplete' => 'new-password', 'class' => 'form-control'),
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
@@ -50,7 +40,17 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
+            ])    
+            ->add('roles', ChoiceType::class, [
+                'choices' => [
+                    'User' => 'ROLE_USER',
+                    'Admin' => 'ROLE_ADMIN',
+                ],
+                'required' => true,
+                'expanded' => true,
+                'multiple' => true,
+                'data' => $entity->getRoles() // Current roles assigned..
+            ])    
             ->add('agreeTerms', CheckboxType::class,[
                 'required' => true,
                 'mapped' => false,
