@@ -7,15 +7,12 @@
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-          }) }}
-          <br>  
-        {{ form_row(registrationForm.roles, {label: 'Rol'}) }} 
+        {{ form_row(registrationForm.plainPassword) }}
+        {{ form_row(registrationForm.roles) }} 
          
-        {{ form_row(registrationForm.agreeTerms, {label: '*Acepto los términos y condiciones'})}}
+        {{ form_row(registrationForm.agreeTerms) }}
             
       
         <button type="submit" class="btn btn-primary">Register</button>
-    {{ form_end(registrationForm) }}
+        {{ form_end(registrationForm) }}
 {% endblock %}
