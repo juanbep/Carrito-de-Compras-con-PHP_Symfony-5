@@ -4,15 +4,29 @@
 
 {% block body %}
     <h1>Registrarse</h1>
-
+    
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword) }}
-        {{ form_row(registrationForm.roles) }} 
-         
-        {{ form_row(registrationForm.agreeTerms) }}
-            
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword) }}
+
+            {{ form_label(registrationForm.roles) }}
+            <div class="form-check-inline">
+            <label class="form-check-label">
+                {% set counter = 0 %}
+                {% for label, value in field_choices(registrationForm.roles) %}
+                    <input
+                    id="{{registrationForm.roles.vars.id}}_{{counter}}" name="{{field_name(registrationForm.roles) }}[]"
+                    type="checkbox" class="form-check-input" value="{{ value }}">{{ label }}
+                    {% set counter = counter + 1 %}
+                {% endfor %}
+            </label>
+            </div>
+            <div>
+                <br>
+            </div>
+            {{form_widget(registrationForm.agreeTerms)}}
+            {{form_label(registrationForm.agreeTerms)}}
+           
+    {{ form_end(registrationForm) }} 
       
-        <button type="submit" class="btn btn-primary">Register</button>
-        {{ form_end(registrationForm) }}
 {% endblock %}

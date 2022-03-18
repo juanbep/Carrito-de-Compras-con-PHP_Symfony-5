@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -42,24 +43,25 @@ class RegistrationFormType extends AbstractType
                 ],
             ])    
             ->add('roles', ChoiceType::class, [
-                'choices' => [
-                    'User' => 'ROLE_USER',
-                    'Admin' => 'ROLE_ADMIN',
-                ],
+                'label' => 'Rol',
+                'choices' => ['User' => 'ROLE_USER', 'Admin' => 'ROLE_ADMIN'],
+                'attr' =>array('class' => 'form-check-inline'),
                 'required' => true,
                 'expanded' => true,
                 'multiple' => true,
                 'data' => $entity->getRoles() // Current roles assigned..
             ])    
             ->add('agreeTerms', CheckboxType::class,[
+                'label' => 'Aceptar términos y condiciones',
                 'required' => true,
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
+                        'message' => 'You should agree to our terms.'
+                    ])
                 ]
             ])
+            ->add('send', SubmitType::class, array('label' =>'Confirmar','attr' =>array('class'=>'btn btn-primary mt-3')))
         ;
     }
 
