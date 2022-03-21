@@ -18,16 +18,21 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 
+use App\Service\ArticleService as ServiceArticle;
+
+
 class ArticleController extends AbstractController {
   /**
    * @Route("/admin/articles", name="articles_list")
+   * @Method ({"GET"})
    */
-    public function article(){
+public function article(){
     
-    $articles = $this->getDoctrine()->getRepository(Product::class)->findAll();
+    $article  = new ServiceArticle($this->getDoctrine()->getManager(), Product::class);
+    $articles = $article->getAllArticles();
 
     return $this->render('articles/index.html.twig', array('articles' => $articles));
-  }
+}
   
   /**
  * @Route ("/admin/articles/new", name="new_article")
@@ -65,9 +70,11 @@ public function new(Request $request){
  * Method ({"GET"})
  */
 public function show($id){
-  $article = $this->getDoctrine()->getRepository(Product::class)->find($id);
-
-  return $this->render('articles/show.html.twig', array('article' =>$article));
+  
+    $article  = new ServiceArticle($this->getDoctrine()->getManager(), Product::class);
+    $article = $article->getArticle($id);
+    
+    return $this->render('articles/show.html.twig', array('article' =>$article));
 
 }
 
@@ -92,8 +99,8 @@ public function update(Request $request, $id){
 
     if($form->isSubmitted() && $form->isValid()){
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->flush();
+        $article  = new ServiceArticle($this->getDoctrine()->getManager(), Product::class);
+        $article->addArticle();
 
         return $this->redirectToRoute('articles_list');
     }
@@ -105,10 +112,11 @@ public function update(Request $request, $id){
  * @Route ("/admin/articles/delete/{id}", name="delete_article")
  * Method ({"DELETE"})
  */
-public function delete(Product $article){
-    $entityManager = $this->getDoctrine()->getManager();
-    $entityManager->remove($article);
-    $entityManager->flush();
+public function delete(Request $request, $id){
+ 
+    $article  = new ServiceArticle($this->getDoctrine()->getManager(), Product::class);
+    $article->deleteArticle($id);
+    
     return $this->redirectToRoute('articles_list');
 }
 
