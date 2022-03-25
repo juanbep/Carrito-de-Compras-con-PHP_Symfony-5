@@ -17,7 +17,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+         <link rel="stylesheet" href="\CRUD_Symfony4\Archivos\css\footer_pie_de_pagina.css">
+    {% endblock %}
 </head>
 <body>
 <header>
@@ -57,20 +59,25 @@
         </div>
     </nav>
 </header>
-
-
 <main role="main" class="container main">
   {% block body %}{% endblock %}
 </main>
+<br>
+<!-- footer pie de página -->
+<footer>
+  <!-- Copyright -->
+    <div class="center">
+        © 2022 Copyright: jbecapillimue@gmail.com
+    </div>
+  <!-- Copyright -->
+</footer>     
 
 {% block javascripts %}
     <script>
     $(function () {
-        $('[data-toggle="popover"]').popover()
-    })
+        $('[data-toggle="popover"]').popover();
+    });
     </script>
 {% endblock %}
-<br>
-<div class="col-12 text-center">Beca98(© Copyright 2022, Algunos Derechos Reservados)</div>  
 </body>
 </html>

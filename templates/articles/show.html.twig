@@ -13,10 +13,13 @@
     class="card-img-top", 
     src="{{article.imagen}}" 
     >
-  <h1>Nombre: {{ article.name }}</h1>
-  <p>Precio: ${{ article.precio | number_format(2) }}</p>
-  <p>Descripción: {{ article.descripcion }}</p>
-<hr>
-  <a href="{{ path('articles_list') }}" class="btn btn-primary mt-3">Volver</a>
+    <h1>Nombre: {{ article.name }}</h1>
+    <p>Precio: ${{ article.precio | number_format(2) }}</p>
+    <p>Descripción: {{ article.descripcion }}</p>
+    <hr>
+    <a href="{{ path('articles_list') }}" class="btn btn-primary mt-3">Volver</a>
+    <div>
+        <br>
+    </div>    
 {% endblock %}
 

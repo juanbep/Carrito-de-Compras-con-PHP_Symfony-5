@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-body{
-    font-family: 'Century Gothic', sans-serif;
-}
-
 .box{  
     width: 60%;
     background: rgba(52,58,64,255);
@@ -31,5 +27,4 @@ body{
     font-weight: 900;
     margin-bottom: 20px;
 }
-
 
