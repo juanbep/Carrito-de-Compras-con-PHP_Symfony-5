@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} UserManagement {% endblock %}
+
+{% block body %}
+    
+    <br>
+    <h3>Usuarios Registrados</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+            <th >Id</th>
+            <th >Correo</th>
+            <th >Roles</th>
+            <th></th>
+            <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>2</td>
+            <td>beca98@admin.com</td>
+            <td>ROLE_ADMIN</td>
+            <td>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="switch1">
+                    <label class="custom-control-label" for="switch1">Conceder Permisos de Administrador</label>
+                </div>
+            </td>
+            <td>
+                <a href="#" class="btn btn-info">Confirmar</a>
+            </td>
+            
+          </tr>
+      </tbody>
+    </table>
+  
+
+{% endblock %}

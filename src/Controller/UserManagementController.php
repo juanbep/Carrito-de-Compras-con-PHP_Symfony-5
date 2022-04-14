@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class UserManagementController extends AbstractController
+{
+    /**
+     * @Route("/user/management", name="user_management")
+     */
+    public function index(): Response
+    {
+        
+        return $this->render('user_management/index.html.twig', [
+            'controller_name' => 'UserManagementController',
+        ]);
+    }
+}
