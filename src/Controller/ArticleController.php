@@ -47,7 +47,7 @@ public function new(Request $request){
     ->add('cantidad', NumberType::class, array('invalid_message'=> 'Valor inválido','attr' =>array('class' => 'form-control')))            
     ->add('descripcion', TextareaType::class, array('required' =>true,'attr' =>array('class' =>'form-control')))
     ->add('imagen', UrlType::class, array('required' =>false,'attr' =>array('class' =>'form-control', 'placeholder' => 'Url ...')))      
-    ->add('save', SubmitType::class, array('label' =>'Create','attr' =>array('class'=>'btn btn-primary mt-3')))
+    ->add('save', SubmitType::class, array('label' =>'Agregar','attr' =>array('class'=>'btn btn-primary mt-3')))
     ->getForm();
   
     $form->handleRequest($request);
