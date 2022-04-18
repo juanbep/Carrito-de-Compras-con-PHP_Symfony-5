@@ -20,7 +20,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="integer")
      */
     private $id;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nombres;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $apellidos;
+    
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $fechaNacimiento;
+    
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $edad;
+    
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
@@ -125,4 +145,53 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+    
+     public function getFechaNacimiento(): ?\DateTimeInterface
+    {
+        return $this->fechaNacimiento;
+    }
+
+    public function setFechaNacimiento(\DateTimeInterface $fechaNacimiento): self
+    {
+        $this->fechaNacimiento = $fechaNacimiento;
+
+        return $this;
+    }
+
+    public function getNombres(): ?string
+    {
+        return $this->nombres;
+    }
+
+    public function setNombres(string $nombres): self
+    {
+        $this->nombres = $nombres;
+
+        return $this;
+    }
+
+    public function getApellidos(): ?string
+    {
+        return $this->apellidos;
+    }
+
+    public function setApellidos(string $apellidos): self
+    {
+        $this->apellidos = $apellidos;
+
+        return $this;
+    }
+
+    public function getEdad(): ?int
+    {
+        return $this->edad;
+    }
+
+    public function setEdad(int $edad): self
+    {
+        $this->edad = $edad;
+
+        return $this;
+    }
+    
 }
