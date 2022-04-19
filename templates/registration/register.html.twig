@@ -6,9 +6,13 @@
     <h1>Registrarse</h1>
     
     {{ form_start(registrationForm) }}
+  
+            {{ form_row(registrationForm.nombres) }}
+            {{ form_row(registrationForm.apellidos) }}
+            {{ form_row(registrationForm.edad) }}
+            {{ form_row(registrationForm.fechaNacimiento) }}
             {{ form_row(registrationForm.email) }}
             {{ form_row(registrationForm.plainPassword) }}
-
             {{ form_label(registrationForm.roles) }}
             <div class="form-check-inline">
             <label class="form-check-label">
@@ -29,4 +33,15 @@
             
     {{ form_end(registrationForm) }} 
       
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function() {
+        
+        $('.js-datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    });
+    </script>
 {% endblock %}

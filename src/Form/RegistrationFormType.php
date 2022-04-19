@@ -8,6 +8,9 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -23,7 +26,23 @@ class RegistrationFormType extends AbstractType
         $entity = $builder->getData();
         
         $builder
-            ->add('email', EmailType::class, array('label' => 'Correo', 'required' =>true, 'attr' =>array('class' => 'form-control')))
+            ->add('nombres', TextType::class, array('label' => 'Nombres', 'required' =>true, 'attr' =>array('class' => 'form-control')))
+            ->add('apellidos', TextType::class, array('label' => 'Apellidos', 'required' =>true, 'attr' =>array('class' => 'form-control')))
+            ->add('edad', NumberType::class, array('label' => 'Edad', 'required' =>true, 'attr' =>array('class' => 'form-control')))
+            ->add('fechaNacimiento', DateType::class,[
+                'label' => 'Fecha de nacimiento (yyyy-mm-dd)', 
+                'required' =>true, 
+                'placeholder' =>  'yyyy-mm-dd',
+                
+                'widget' => 'single_text',
+
+                // prevents rendering it as type="date", to avoid HTML5 date pickers
+                'html5' => false,
+
+                // adds a class that can be selected in JavaScript
+                'attr' => ['class' => 'js-datepicker'],
+                ])
+            ->add('email', EmailType::class, array('label' => 'Email', 'required' =>true, 'attr' =>array('class' => 'form-control')))
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
